@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Transporte Escolar Seguro — TCC</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">Rota<span>Van</span></div>
+    <nav>
+      <button id="nav-home" class="nav-btn">Início</button>
+      <button id="nav-register" class="nav-btn">Cadastro</button>
+      <button id="nav-login" class="nav-btn">Login</button>
+      <button id="nav-support" class="nav-btn">Suporte</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="home" class="page active">
+      <div class="hero">
+        <div>
+          <h1>Transporte Escolar com Segurança e Pontualidade</h1>
+          <p>Projeto de TCC — Plataforma de gerenciamento e acompanhamento de rotas escolares.</p>
+          <div class="cta">
+            <button id="cta-register" class="btn primary">Cadastre-se</button>
+            <button id="cta-login" class="btn">Entrar</button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <h3>Por que usar?</h3>
+          <ul>
+            <li>Rastreamento em tempo real</li>
+            <li>Motoristas verificados</li>
+            <li>Comunicação com suporte</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="features grid-3">
+        <div class="card">
+          <h4>Segurança</h4>
+          <p>Registro de motoristas e rotas planejadas.</p>
+        </div>
+        <div class="card">
+          <h4>Transparência</h4>
+          <p>Responsáveis acompanham trajeto em tempo real.</p>
+        </div>
+        <div class="card">
+          <h4>Suporte</h4>
+          <p>Chat simples e registro de solicitações.</p>
+        </div>
+      </div>
+    </section>
+
+    
+    <section id="register" class="page">
+      <h2>Cadastro</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Cadastro de Responsável</h3>
+          <form id="form-register-guardian" class="form">
+            <input type="text" name="name" placeholder="Nome completo" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Senha (mín 6)" required minlength="6">
+            <input type="text" name="childName" placeholder="Nome do aluno" required>
+            <button class="btn primary" type="submit">Cadastrar Responsável</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Cadastro de Motorista</h3>
+          <form id="form-register-driver" class="form">
+            <input type="text" name="name" placeholder="Nome completo" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Senha (mín 6)" required minlength="6">
+            <input type="text" name="vehicle" placeholder="Veículo (placa/modelo)" required>
+            <button class="btn primary" type="submit">Cadastrar Motorista</button>
+          </form>
+        </div>
+      </div>
+      <p class="muted">Obs: um usuário com email já cadastrado não será duplicado.</p>
+    </section>
+
+
+    <section id="login" class="page">
+      <h2>Login</h2>
+      <div class="card" style="max-width:520px;margin:auto;">
+        <form id="form-login" class="form">
+          <input type="email" name="email" placeholder="Email" required>
+          <input type="password" name="password" placeholder="Senha" required>
+          <select id="login-role" aria-label="role">
+            <option value="guardian">Responsável</option>
+            <option value="driver">Motorista</option>
+            <option value="admin">Admin (demo)</option>
+          </select>
+          <button class="btn primary" type="submit">Entrar</button>
+        </form>
+      </div>
+    </section>
+
+    
+    <section id="dashboard" class="page">
+      <h2>Dashboard</h2>
+
+      <div id="dashboard-guest" class="card">
+        <p>Faça login para acessar seu painel.</p>
+      </div>
+
+      <div id="panel-guardian" class="panel" style="display:none;">
+        <h3>Bem-vindo, <span id="g-name"></span> (Responsável)</h3>
+        <p>Aluno: <strong id="g-child"></strong></p>
+
+        <div class="card">
+          <h4>Acompanhar Trajeto</h4>
+          <p>Escolha a rota / motorista e acompanhe em tempo real.</p>
+          <div class="form-inline">
+            <select id="select-driver-to-track"></select>
+            <button id="btn-start-tracking" class="btn">Iniciar Acompanhamento</button>
+            <button id="btn-stop-tracking" class="btn" style="display:none;">Parar</button>
+          </div>
+
+          <div id="map" class="map">
+            
+            <svg id="svg-map" viewBox="0 0 800 400" preserveAspectRatio="xMidYMid meet">
+              <rect width="800" height="400" fill="#e6f2ff"></rect>
+              
+              <path id="route-path" d="M80 320 C 200 200, 400 220, 720 80" stroke="#0370b9" stroke-width="6" fill="none" stroke-linecap="round"/>
+              
+              <circle id="bus-marker" cx="80" cy="320" r="10" fill="#ffb703" stroke="#b36b00" stroke-width="2"/>
+            </svg>
+          </div>
+
+          <p class="muted">Observação: rastreamento simulado via `localStorage` / `BroadcastChannel` (funciona entre abas do mesmo navegador).</p>
+        </div>
+      </div>
+
+      <div id="panel-driver" class="panel" style="display:none;">
+        <h3>Bem-vindo, <span id="d-name"></span> (Motorista)</h3>
+        <p>Veículo: <strong id="d-vehicle"></strong></p>
+
+        <div class="card">
+          <h4>Controle de Viagem</h4>
+          <p>Inicie a viagem para que responsáveis acompanhem seu trajeto.</p>
+          <div class="form-inline">
+            <button id="btn-start-trip" class="btn primary">Iniciar Viagem</button>
+            <button id="btn-end-trip" class="btn" style="display:none;">Encerrar Viagem</button>
+          </div>
+
+          <div class="status" id="driver-status">Status: ocioso</div>
+        </div>
+      </div>
+
+      <div id="panel-admin" class="panel" style="display:none;">
+        <h3>Painel Admin</h3>
+        <div class="grid-2">
+          <div class="card">
+            <h4>Usuários</h4>
+            <div id="admin-users"></div>
+          </div>
+          <div class="card">
+            <h4>Mensagens de Suporte</h4>
+            <div id="admin-support"></div>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px;">
+        <button id="btn-logout" class="btn">Sair</button>
+      </div>
+    </section>
+
+    <section id="support" class="page">
+      <h2>Suporte</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Enviar uma solicitação</h3>
+          <form id="form-support" class="form">
+            <input type="text" name="name" placeholder="Seu nome" required>
+            <input type="email" name="email" placeholder="Seu email" required>
+            <textarea name="message" placeholder="Descreva seu problema" rows="5" required></textarea>
+            <button class="btn primary" type="submit">Enviar</button>
+          </form>
+        </div>
+        <div class="card">
+          <h3>Mensagens enviadas</h3>
+          <div id="support-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© 2025 RotaVan</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
