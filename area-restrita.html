@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área Restrita</title>
+    <link rel="stylesheet" href="css/area-restrita.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li><a href="area-restrita.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+            <button id="dark-mode-toggle">Modo Escuro</button>
+        </nav>
+    </header>
+    <main>
+        <section class="rotas" style="text-align: center; margin: 20px auto;">
+            <h1>Rotas dos Ônibus</h1>
+            <div class="rotas-container" style="border: 2px solid black; border-radius: 10px; padding: 20px;">
+                <p>Aqui você pode visualizar e adicionar rotas disponíveis dos ônibus.</p>
+                <form id="add-route-form" style="margin-bottom: 20px;">
+                    <input type="text" id="route-name" placeholder="Nome da Rota" required style="padding: 10px; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <input type="time" id="departure-time" required style="padding: 10px; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <input type="time" id="arrival-time" required style="padding: 10px; margin-right: 10px; border: 1px solid #ccc; border-radius: 5px;">
+                    <button type="submit" style="padding: 10px 20px; background-color: black; color: white; border: none; border-radius: 5px; cursor: pointer;">Adicionar Rota</button>
+                </form>
+                <table id="routes-table" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="background-color: black; color: white;">
+                            <th style="padding: 10px; border: 1px solid #ccc;">Rota</th>
+                            <th style="padding: 10px; border: 1px solid #ccc;">Horário de Partida</th>
+                            <th style="padding: 10px; border: 1px solid #ccc;">Horário de Chegada</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Rotas adicionadas dinamicamente aparecerão aqui -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="mapa-rotas" style="text-align: center; margin: 20px auto;">
+            <h2>Mapa Interativo</h2>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.41941548468132!3d37.77492977975971!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858064f0e2c5b1%3A0x4c8b0b0b0b0b0b0b!2sSan+Francisco%2C+CA%2C+USA!5e0!3m2!1sen!2sbr!4v1616161616161!5m2!1sen!2sbr" width="600" height="450" style="border: 2px solid black; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <div class="filtros-rotas">
+            <h2>Filtrar Rotas</h2>
+            <input type="text" id="filtro-rotas" placeholder="Digite o nome da rota..." style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;">
+        </div>
+
+        <div class="tabela-rotas">
+            <h2>Horários e Rotas</h2>
+            <table style="width: 100%; border-collapse: collapse;">
+                <thead>
+                    <tr style="background-color: black; color: white;">
+                        <th style="padding: 10px; border: 1px solid #ccc;">Rota</th>
+                        <th style="padding: 10px; border: 1px solid #ccc;">Horário de Partida</th>
+                        <th style="padding: 10px; border: 1px solid #ccc;">Horário de Chegada</th>
+                        <th style="padding: 10px; border: 1px solid #ccc;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Centro - Bairro</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">08:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">08:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Bairro - Centro</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">09:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">09:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Estação - Aeroporto</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">10:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">10:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Aeroporto - Centro</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">11:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">11:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Centro - Shopping</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">12:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">12:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Shopping - Bairro</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">13:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">13:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Bairro - Estação</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">14:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">14:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Estação - Centro</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">15:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">15:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Centro - Universidade</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">16:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">16:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Universidade - Bairro</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">17:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">17:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Universidade - Aeroporto</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">18:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">18:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Aeroporto - Shopping</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">19:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">19:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Shopping - Universidade</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">20:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">20:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Centro - Bairro Novo</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">21:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">21:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Bairro Novo - Centro</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">22:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">22:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Centro - Terminal Rodoviário</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">23:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">23:45</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                    <tr style="text-align: center;">
+                        <td style="padding: 10px; border: 1px solid #ccc;">Terminal Rodoviário - Aeroporto</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">00:00</td>
+                        <td style="padding: 10px; border: 1px solid #ccc;">00:30</td>
+                        <td style="padding: 10px; border: 1px solid #ccc; color: green;">Ativo</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <section class="avisos">
+            <h2>Avisos Importantes</h2>
+            <ul>
+                <li>Manutenção programada na linha 3 no dia 30/04/2025.</li>
+                <li>Nova rota adicionada: Bairro Novo - Centro.</li>
+            </ul>
+        </section>
+
+        <section id="sobre" class="sobre">
+            <h2>Sobre Nós</h2>
+            <p>Bem-vindo à nossa plataforma! Aqui você encontra informações sobre as rotas de ônibus e muito mais. Nosso objetivo é facilitar o acesso a dados importantes para passageiros e motoristas.</p>
+        </section>
+
+        <section id="contato" class="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco para dúvidas ou sugestões:</p>
+            <ul>
+                <li>Email: contato@exemplo.com</li>
+                <li>Telefone: (11) 1234-5678</li>
+                <li>Endereço: Rua Exemplo, 123, São Paulo, SP</li>
+            </ul>
+        </section>
+    </main>
+    <script src="scripts/area-restrita.js"></script>
+    <script>
+        window.onload = () => {
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+
+            if (isLoggedIn !== 'true') {
+                window.location.href = 'entrar.html';
+            }
+        };
+    </script>
+</body>
+</html>

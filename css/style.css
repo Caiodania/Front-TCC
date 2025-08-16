@@ -1,0 +1,176 @@
+/* Ajuste para permitir rolagem na página */
+body {
+    display: block; /* Alterado de flex para block */
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: white;
+    position: relative;
+    min-height: 100vh; /* Garante altura mínima */
+    overflow-y: auto; /* Permite rolagem vertical */
+}
+
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 50px; /* Adicionado espaçamento superior */
+}
+
+.button-container button {
+    margin: 10px;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: gray; 
+    color: black;
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+.button-container button:hover {
+    background-color: gray; 
+}
+
+/* Estilização do cabeçalho */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px;
+}
+
+.navbar a:hover {
+    background-color: #00bcd4;
+    color: black;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.rotas {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    margin: 0 auto;
+    border: 1px solid #666;
+}
+
+.rotas h1 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #00bcd4;
+    text-shadow: 1px 1px 2px black;
+}
+
+.rotas-container {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    resize: none;
+    font-size: 1rem;
+    background-color: #222;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #00bcd4;
+}
+
+button {
+    background-color: #00bcd4;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #008c9e;
+    transform: scale(1.05);
+}
+
+/* Ajuste do tamanho do carousel */
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 300px; /* Reduced height for smaller images */
+}
+
+.carousel-container img {
+    flex: 0 0 auto;
+    max-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+.carousel-button.left {
+    left: 10px;
+}
+.carousel-button.right {
+    right: 10px;
+}
+/* Estilização do rodapé */

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bem-vindo</h1>
+    <div class="button-container">
+        <button onclick="window.location.href='login-motorista.html'">Cadastro Motorista</button>
+        <button onclick="window.location.href='login-passageiro.html'">Cadastro Passageiro</button>
+        <button onclick="showLoginOptions()">Já possui cadastro??</button>
+    </div>
+
+    <main>
+        <section class="highlights" style="text-align: center; margin: 40px auto;">
+            <h2 style="font-size: 2rem; color: white; margin-bottom: 20px;">Destaques</h2>
+            <p style="font-size: 1.2rem; color: white; margin-bottom: 30px;">Descubra as principais funcionalidades do nosso site e como ele pode facilitar sua vida.</p>
+            <div class="highlights-container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+                <div class="highlight-item" style="background-color: gray; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 300px;">
+                    <h3 style="font-size: 1.5rem; color: black;">Rotas de Ônibus</h3>
+                    <p style="font-size: 1rem; color: black;">Visualize e planeje suas viagens com informações detalhadas sobre rotas e horários.</p>
+                </div>
+                <div class="highlight-item" style="background-color: gray; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 300px;">
+                    <h3 style="font-size: 1.5rem; color: black;">Mapa Interativo</h3>
+                    <p style="font-size: 1rem; color: black;">Explore as rotas no mapa interativo e encontre o melhor caminho para o seu destino.</p>
+                </div>
+                <div class="highlight-item" style="background-color: gray; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width: 300px;">
+                    <h3 style="font-size: 1.5rem; color: black;">Notificações em Tempo Real</h3>
+                    <p style="font-size: 1rem; color: black;">Receba atualizações instantâneas sobre mudanças nas rotas e horários.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="carousel">
+            <h2>Galeria</h2>
+            <div class="carousel-container">
+                <img src="http://www.frotacia.com.br/wp-content/uploads/2018/05/20180508_9e61665c4ee84d8181ffbcf0a6815e70_onibus-mb-5-1.jpg" alt="Slide 1">
+                <img src="https://juntosnocaminho.com.br/wp-content/uploads/2020/05/original-c1a9f81e2185d8e847ba5c750f32a67d.jpg" alt="Slide 2">
+                <img src="https://viaturms.com.br/sites/default/files/galeriafrota/_MG_4228.jpg" alt="Slide 3">
+            </div>
+            <div class="carousel-controls">
+                <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+                <button class="next" onclick="moveSlide(1)">&#10095;</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        function showLoginOptions() {
+            const optionsDiv = document.createElement('div');
+            optionsDiv.style.position = 'fixed';
+            optionsDiv.style.top = '50%';
+            optionsDiv.style.left = '50%';
+            optionsDiv.style.transform = 'translate(-50%, -50%)';
+            optionsDiv.style.backgroundColor = '#333';
+            optionsDiv.style.color = '#fff';
+            optionsDiv.style.padding = '20px';
+            optionsDiv.style.borderRadius = '10px';
+            optionsDiv.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+            optionsDiv.style.textAlign = 'center';
+
+            const title = document.createElement('h2');
+            title.textContent = 'Escolha o tipo de login';
+            optionsDiv.appendChild(title);
+
+            const motoristaButton = document.createElement('button');
+            motoristaButton.textContent = 'Login Motorista';
+            motoristaButton.style.margin = '10px';
+            motoristaButton.style.padding = '10px 20px';
+            motoristaButton.style.backgroundColor = 'gray';
+            motoristaButton.style.color = 'black';
+            motoristaButton.style.border = 'none';
+            motoristaButton.style.borderRadius = '5px';
+            motoristaButton.style.cursor = 'pointer';
+            motoristaButton.onclick = () => {
+                window.location.href = 'login-motorista.html';
+            };
+            optionsDiv.appendChild(motoristaButton);
+
+            const passageiroButton = document.createElement('button');
+            passageiroButton.textContent = 'Login Passageiro';
+            passageiroButton.style.margin = '10px';
+            passageiroButton.style.padding = '10px 20px';
+            passageiroButton.style.backgroundColor = 'gray';
+            passageiroButton.style.color = 'black';
+            passageiroButton.style.border = 'none';
+            passageiroButton.style.borderRadius = '5px';
+            passageiroButton.style.cursor = 'pointer';
+            passageiroButton.onclick = () => {
+                window.location.href = 'login-passageiro.html';
+            };
+            optionsDiv.appendChild(passageiroButton);
+
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Fechar';
+            closeButton.style.marginTop = '10px';
+            closeButton.style.padding = '10px 20px';
+            closeButton.style.backgroundColor = '#555';
+            closeButton.style.color = '#fff';
+            closeButton.style.border = 'none';
+            closeButton.style.borderRadius = '5px';
+            closeButton.style.cursor = 'pointer';
+            closeButton.onclick = () => document.body.removeChild(optionsDiv);
+            optionsDiv.appendChild(closeButton);
+
+            document.body.appendChild(optionsDiv);
+        }
+    </script>
+    <script src="script.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

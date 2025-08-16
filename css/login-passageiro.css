@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: gray; /* Fundo preto */
+    color: white; /* Texto branco */
+}
+.form-container {
+    background-color: gray; /* Cor dos botões */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+.form-container h1 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+.form-container input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+}
+.form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: white; /* Tom mais escuro */
+    border: none;
+    border-radius: 5px;
+    color: black;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.form-container button:hover {
+    background-color: gray; /* Cor original ao passar o mouse */
+}
+.form-container .register-link {
+    margin-top: 20px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.form-container .register-link:hover {
+    text-decoration: underline;
+}/* Adicione estilos específicos para a página de login do motorista aqui */
