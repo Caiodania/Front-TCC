@@ -1,176 +1,202 @@
-/* Ajuste para permitir rolagem na página */
+/* ===============================
+   VARIÁVEIS DE CORES
+================================ */
+:root {
+  --bg-color: #e0f7fa;
+  --card-color: #ffffff;
+  --primary-color: #0288d1;
+  --secondary-color: #ff6f00;
+  --text-color: #212121;
+  --muted-color: #616161;
+  --radius: 12px;
+  --transition: 0.3s;
+  --shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
 body {
-    display: block; /* Alterado de flex para block */
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: white;
-    position: relative;
-    min-height: 100vh; /* Garante altura mínima */
-    overflow-y: auto; /* Permite rolagem vertical */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 2.5rem;
-    color: white;
+/* ===============================
+   NAVEGAÇÃO
+================================ */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  background-color: var(--primary-color);
+  padding: 15px;
 }
 
-.button-container {
-    text-align: center;
-    margin-top: 50px; /* Adicionado espaçamento superior */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: var(--radius);
+  transition: var(--transition);
 }
 
-.button-container button {
-    margin: 10px;
-    padding: 10px 25px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: gray; 
-    color: black;
-    transition: background-color 0.3s ease;
-    border-radius: 10px;
+nav a:hover {
+  background-color: var(--secondary-color);
+  color: #fff;
 }
 
-.button-container button:hover {
-    background-color: gray; 
+/* ===============================
+   HEADER
+================================ */
+.header-container {
+  text-align: center;
+  padding: 50px 20px;
 }
 
-/* Estilização do cabeçalho */
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.header-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
 }
 
-.navbar {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 20px;
+.header-container p {
+  font-size: 1.2rem;
 }
 
-.navbar li {
-    display: inline;
+/* ===============================
+   HIGHLIGHTS CARDS
+================================ */
+.highlights {
+  text-align: center;
+  padding: 40px 20px;
 }
 
-.navbar a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 10px 15px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 5px;
+.highlights-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.navbar a:hover {
-    background-color: #00bcd4;
-    color: black;
+.highlight-item {
+  background-color: var(--card-color);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  width: 300px;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
-main {
-    padding: 20px;
-    text-align: center;
-    margin-top: 50px;
+.highlight-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.rotas {
-    background: linear-gradient(135deg, #333, #555);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    margin: 0 auto;
-    border: 1px solid #666;
+/* ===============================
+   CARROSSEL
+================================ */
+.carousel {
+  text-align: center;
+  padding: 40px 20px;
 }
 
-.rotas h1 {
-    margin-bottom: 20px;
-    font-size: 1.8rem;
-    color: #00bcd4;
-    text-shadow: 1px 1px 2px black;
+.carousel h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primary-color);
 }
 
-.rotas-container {
-    margin-top: 20px;
+/* Wrapper para ocultar overflow */
+.carousel-wrapper {
+  overflow: hidden;
+  max-width: 800px;       /* largura máxima do carrossel */
+  margin: 0 auto;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
 }
 
-textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #555;
-    resize: none;
-    font-size: 1rem;
-    background-color: #222;
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
+/* Track que contém as imagens */
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
 }
 
-textarea:focus {
-    outline: none;
-    box-shadow: 0 0 10px #00bcd4;
+/* Imagens do carrossel */
+.carousel-track img {
+  width: 100%;
+  max-width: 300px;       /* limita tamanho das imagens */
+  height: auto;
+  margin: 0 10px;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+  object-fit: cover;
+  transition: transform var(--transition);
 }
 
-button {
-    background-color: #00bcd4;
-    color: white;
-    font-weight: bold;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.carousel-track img:hover {
+  transform: scale(1.05); /* leve zoom ao passar o mouse */
 }
 
-button:hover {
-    background-color: #008c9e;
-    transform: scale(1.05);
+/* Botões de navegação */
+.carousel-controls {
+  margin-top: 15px;
 }
 
-/* Ajuste do tamanho do carousel */
-.carousel-container {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
-    height: 300px; /* Reduced height for smaller images */
+.carousel-controls button {
+  padding: 10px 20px;
+  margin: 0 5px;
+  border: none;
+  border-radius: var(--radius);
+  background-color: var(--primary-color);
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.carousel-container img {
-    flex: 0 0 auto;
+.carousel-controls button:hover {
+  background-color: var(--secondary-color);
+  transform: scale(1.1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .carousel-wrapper {
     max-width: 100%;
-    height: 100%;
-    object-fit: cover;
+  }
+
+  .carousel-track img {
+    max-width: 200px;
+  }
 }
 
+/* ===============================
+   LOGIN POP-UP
+================================ */
+.login-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--card-color);
+  color: var(--text-color);
+  padding: 25px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  z-index: 1000;
+}
 
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
+.login-popup button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: var(--transition);
+  background-color: var(--primary-color);
+  color: #fff;
 }
-.carousel-button.left {
-    left: 10px;
+
+.login-popup .close-btn {
+  background-color: #555;
 }
-.carousel-button.right {
-    right: 10px;
-}
-/* Estilização do rodapé */
