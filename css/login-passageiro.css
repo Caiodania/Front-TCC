@@ -1,3 +1,6 @@
+/* =========================
+   Estilos Globais
+========================= */
 body {
     display: flex;
     justify-content: center;
@@ -5,48 +8,77 @@ body {
     height: 100vh;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: gray; /* Fundo preto */
-    color: white; /* Texto branco */
+    background: linear-gradient(160deg, #0d47a1, #1976d2); /* Fundo azul degradê */
+    color: #fff; /* Texto branco */
 }
+
+/* =========================
+   Container do Formulário
+========================= */
 .form-container {
-    background-color: gray; /* Cor dos botões */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;       /* Fundo branco */
+    padding: 40px;                /* Maior espaçamento interno */
+    border-radius: 14px;          /* Cantos arredondados */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra mais profunda */
     text-align: center;
-    width: 300px;
+    width: 420px;                 /* Largura maior */
+    color: #0d47a1;               /* Texto azul */
 }
+
+/* =========================
+   Título
+========================= */
 .form-container h1 {
     margin-bottom: 20px;
-    font-size: 1.5rem;
+    font-size: 2rem;              /* Título maior */
+    font-weight: bold;
+    color: #0d47a1;               /* Azul forte */
 }
+
+/* =========================
+   Campos de Input
+========================= */
 .form-container input {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: none;
-    border-radius: 5px;
+    padding: 18px;                /* Campos maiores */
+    margin: 14px 0;               /* Espaçamento entre campos */
+    border: 1px solid #ccc;
+    border-radius: 10px;          /* Cantos arredondados */
+    font-size: 1.2rem;            /* Texto maior */
 }
+
+/* =========================
+   Botão Entrar
+========================= */
 .form-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: white; /* Tom mais escuro */
+    width: 100%;                  /* Largura total */
+    padding: 14px;                 /* Altura maior */
+    background-color: #ffd600;    /* Amarelo */
     border: none;
-    border-radius: 5px;
-    color: black;
-    font-size: 1rem;
+    border-radius: 8px;
+    color: #0d47a1;               /* Texto azul */
+    font-size: 1.1rem;            /* Texto maior */
+    font-weight: bold;
     cursor: pointer;
+    transition: background 0.3s ease;
 }
+
 .form-container button:hover {
-    background-color: gray; /* Cor original ao passar o mouse */
+    background-color: #ffea4d;    /* Amarelo claro ao passar o mouse */
 }
+
+/* =========================
+   Link de Cadastro
+========================= */
 .form-container .register-link {
     margin-top: 20px;
     display: block;
-    color: white;
+    color: #0d47a1;               /* Azul */
     text-decoration: none;
     font-size: 0.9rem;
+    font-weight: bold;
 }
+
 .form-container .register-link:hover {
     text-decoration: underline;
-}/* Adicione estilos específicos para a página de login do motorista aqui */
+}
